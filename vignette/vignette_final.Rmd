@@ -1,0 +1,34 @@
+---
+title: "vingette flowerize"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#First call library to load the flowerize package and the tidyverse package on which it depends. Next, read in the example data set provided with the package. 
+
+```{r}
+library(tidyverse)
+library(flowerize)
+
+flowers <- read.csv("flowers.csv")
+```
+#Use this function to genterate summary statsitics for each treatment group of the flower data. See example below:
+
+```{r}
+flower_describe(flowers, flowers$nitrogen, flowers$inflorescence)
+```
+
+#USe this function to perform a and generate the results of an ANOVA. See example below:
+
+```{r}
+flower_analyze(flowers$inflorescence, flowers$nitrogen, flowers)
+```
+
+#Use this function to generate a pretty pink boxplot to visualize your data. See example below:
+
+```{r}
+flower_visualize(flowers$inflorescence, flowers$nitrogen, flowers)
+```
